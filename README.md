@@ -110,3 +110,14 @@ Consulta `docs/arquitectura.md` para un diagrama textual y decisiones detalladas
 1. Desplegar el backend en un servidor con MySQL y configurar variables de entorno seguras.
 2. Añadir autenticación (JWT o token) si se planea exponer el panel en redes públicas.
 3. Instrumentar métricas o alertas externas (Prometheus, syslog) usando los eventos registrados.
+
+## Documentación adicional
+
+Consulta el directorio `docs/` para información más detallada:
+
+- `docs/README.md` – índice de documentación.
+- `docs/user-manual.md` – guía de instalación y uso del dashboard.
+- `docs/simulation-guide.md` – funcionamiento y parametrización de la simulación.
+- `docs/technical-reference.md` – referencia para desarrolladores.
+- `docs/operations-guide.md` – despliegue, monitoreo y procedimientos operativos.
+- `docs/arquitectura.md` – diseño del sistema y diagrama de componentes.
