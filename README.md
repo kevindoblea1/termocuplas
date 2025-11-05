@@ -33,7 +33,7 @@ Solución completa para controlar el nivel y la temperatura de un tanque de agua
 
 ```bash
 cd backend
-python -m venv .venv
+python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 
@@ -46,22 +46,33 @@ export DB_HOST=localhost
 export DB_PORT=3306
 
 python manage.py migrate
+
+# Servidor de desarrollo (Ctrl+C para detenerlo)
 python manage.py runserver
 ```
+
+> Tip: Cuando termines de trabajar podés salir del entorno virtual con `deactivate`.
 
 ### Pruebas
 
 ```bash
+cd backend
+source .venv/bin/activate
 python manage.py test control
 ```
 
 ### Comando de simulación (1 Hz)
 
 ```bash
+cd backend
+source .venv/bin/activate
 python manage.py run_simulation --iterations 0
+# Para acelerar la simulación (p.ej. 5 Hz → paso de 0.2 s)
+python manage.py run_simulation --iterations 0 --hz 5
 ```
 
 Con el servidor levantado, la simulación actualiza nivel y temperatura cada segundo para observar cómo el controlador mantiene los rangos objetivo.
+Al arrancar la simulación, la configuración activa del tanque se ajusta automáticamente a un rango amplio (mínimo 90 L, máximo/capacidad 200 L) para emular un depósito de mayor tamaño. Durante la ejecución, el consumo base y la válvula de vaciado reducen el nivel, mientras la válvula de llenado y la resistencia se encienden o apagan según lo requiera la lógica de control. Si querés regresar a valores anteriores, actualizá la configuración desde el panel o la base de datos.
 
 ## Configuración del frontend
 
