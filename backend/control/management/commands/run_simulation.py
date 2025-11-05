@@ -3,6 +3,7 @@ from __future__ import annotations
 import time
 
 from django.core.management.base import BaseCommand, CommandError
+from django.db import OperationalError
 
 from control.models import TankConfig
 from control.services import ControlService
@@ -17,6 +18,8 @@ class Command(BaseCommand):
     DRAIN_EXTRA_LPS = 3.5
     HEATING_RATE_C_PER_SEC = 0.8
     COOLING_RATE_C_PER_SEC = 0.4
+    DB_RETRY_SLEEP_S = 0.5
+    DB_MAX_RETRIES = 5
 
     help = (
         'Simula el comportamiento del tanque aplicando la lógica de control y '
@@ -70,7 +73,7 @@ class Command(BaseCommand):
                     latest_state.heater_on,
                     interval_s,
                 )
-                result = service.step(level_l=next_level, temp_c=next_temp)
+                result = self._safe_step(service, level_l=next_level, temp_c=next_temp)
                 self._print_state(result.state)
                 count += 1
                 time.sleep(interval_s)
@@ -133,3 +136,20 @@ class Command(BaseCommand):
         if updates:
             TankConfig.objects.filter(pk=config.pk).update(**updates)
             service.config.refresh_from_db(fields=list(updates.keys()))
+
+    def _safe_step(self, service: ControlService, *, level_l: float, temp_c: float):
+        """Invoca service.step reintentando si SQLite queda bloqueada."""
+        attempts = 0
+        while True:
+            try:
+                return service.step(level_l=level_l, temp_c=temp_c)
+            except OperationalError as exc:
+                attempts += 1
+                if attempts > self.DB_MAX_RETRIES:
+                    raise CommandError(f'Error de base de datos tras {attempts} intentos: {exc}') from exc
+                self.stderr.write(
+                    self.style.WARNING(
+                        f'Base de datos bloqueada, reintentando ({attempts}/{self.DB_MAX_RETRIES})...'
+                    )
+                )
+                time.sleep(self.DB_RETRY_SLEEP_S)

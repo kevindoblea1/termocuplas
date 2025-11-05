@@ -72,7 +72,7 @@ python manage.py run_simulation --iterations 0 --hz 5
 ```
 
 Con el servidor levantado, la simulación actualiza nivel y temperatura cada segundo para observar cómo el controlador mantiene los rangos objetivo.
-Al arrancar la simulación, la configuración activa del tanque se ajusta automáticamente a un rango amplio (mínimo 90 L, máximo/capacidad 200 L) para emular un depósito de mayor tamaño. Durante la ejecución, el consumo base y la válvula de vaciado reducen el nivel, mientras la válvula de llenado y la resistencia se encienden o apagan según lo requiera la lógica de control. Si querés regresar a valores anteriores, actualizá la configuración desde el panel o la base de datos.
+Al arrancar la simulación, la configuración activa del tanque se ajusta automáticamente a un rango amplio (mínimo 90 L, máximo/capacidad 200 L) para emular un depósito de mayor tamaño. Durante la ejecución, el consumo base y la válvula de vaciado reducen el nivel, mientras la válvula de llenado y la resistencia se encienden o apagan según lo requiera la lógica de control. Si querés regresar a valores anteriores, actualizá la configuración desde el panel o la base de datos. Para frecuencias altas (`--hz` elevado) la simulación reintenta automáticamente cuando SQLite se bloquea; aun así, considerá usar MySQL si necesitás pruebas intensivas sin esperas.
 
 ## Configuración del frontend
 
