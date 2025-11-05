@@ -120,4 +120,5 @@ Consulta el directorio `docs/` para información más detallada:
 - `docs/simulation-guide.md` – funcionamiento y parametrización de la simulación.
 - `docs/technical-reference.md` – referencia para desarrolladores.
 - `docs/operations-guide.md` – despliegue, monitoreo y procedimientos operativos.
+- `docs/troubleshooting.md` – resolución de problemas frecuentes (bloqueos, concurrencia, etc.).
 - `docs/arquitectura.md` – diseño del sistema y diagrama de componentes.
