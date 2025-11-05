@@ -1,0 +1,53 @@
+.state-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem 0.75rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  min-width: 140px;
+  transition: all 0.3s ease;
+}
+
+.state-badge--active {
+  background-color: #bbf7d0;
+  color: #166534;
+  border: 1px solid #22c55e;
+}
+
+.state-badge--inactive {
+  background-color: #e2e8f0;
+  color: #1e293b;
+  border: 1px solid #cbd5f5;
+}
+
+.state-badge--fill.state-badge--active {
+  background-color: #bae6fd;
+  border-color: #38bdf8;
+  color: #075985;
+}
+
+.state-badge--drain.state-badge--active {
+  background-color: #fef3c7;
+  border-color: #f59e0b;
+  color: #92400e;
+}
+
+.state-badge--heater.state-badge--active {
+  background-color: #bbf7d0;
+  border-color: #22c55e;
+  color: #166534;
+}
+
+.state-badge--heater.state-badge--inactive {
+  background-color: #e0e7ff;
+  border-color: #c7d2fe;
+  color: #3730a3;
+}
+
+.state-badge--danger {
+  background-color: #fecaca;
+  color: #991b1b;
+  border: 1px solid #f87171;
+}

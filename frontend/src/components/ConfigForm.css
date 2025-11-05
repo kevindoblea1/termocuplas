@@ -1,0 +1,99 @@
+.config-card {
+  border: 1px solid #cbd5f5;
+  border-radius: 16px;
+  padding: 1.5rem;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow: 0 10px 25px -15px rgba(15, 23, 42, 0.35);
+}
+
+.config-card h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #1e293b;
+}
+
+.config-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.config-card__section {
+  border-top: 1px solid #e2e8f0;
+  padding-top: 0.75rem;
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.config-card__section h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: #1e293b;
+}
+
+.config-card label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.config-card input {
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #94a3b8;
+  font-size: 1rem;
+}
+
+.config-card select {
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #94a3b8;
+  font-size: 1rem;
+  background-color: #ffffff;
+}
+
+.config-card button {
+  padding: 0.65rem;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(90deg, #2563eb 0%, #1d4ed8 100%);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.config-card button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.config-card__hints {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  font-size: 0.85rem;
+  color: #475569;
+}
+
+.config-card__error {
+  color: #b91c1c;
+  font-size: 0.9rem;
+}
+
+.config-card__success {
+  color: #15803d;
+  font-size: 0.9rem;
+}
+
+.config-card__hint {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #64748b;
+}

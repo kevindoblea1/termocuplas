@@ -1,0 +1,176 @@
+.app {
+  min-height: 100vh;
+  padding: 2rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.app__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.app__header h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: #1e293b;
+}
+
+.app__header p {
+  margin: 0.25rem 0 0 0;
+  color: #475569;
+}
+
+.app__meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+  color: #334155;
+  font-weight: 600;
+}
+
+.app__error {
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  background-color: #fee2e2;
+  color: #b91c1c;
+  border: 1px solid #f87171;
+  font-weight: 600;
+}
+
+.app__layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+
+.app__panel {
+  display: flex;
+  width: 100%;
+  gap: 2.5rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.app__metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  flex: 1;
+}
+
+.app__temperature {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background-color: #ffffff;
+  padding: 1.25rem 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px -20px rgba(15, 23, 42, 0.5);
+  border: 1px solid #cbd5f5;
+}
+
+.app__temperature-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1d4ed8;
+}
+
+.app__temperature-target,
+.app__level-percent {
+  color: #475569;
+  font-weight: 600;
+}
+
+.app__control-mode {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}
+
+.app__control-mode--auto {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.app__control-mode--manual {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.app__actuators {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.app__actuators-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.app__actuators-group h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: #1f2937;
+}
+
+.app__badges-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.app__sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  justify-content: flex-start;
+}
+
+.app__loading {
+  align-self: center;
+  padding: 0.75rem 1.25rem;
+  border-radius: 12px;
+  background-color: #e0f2fe;
+  color: #075985;
+  font-weight: 600;
+}
+
+@media (max-width: 1024px) {
+  .app {
+    padding: 1.5rem;
+  }
+  .app__layout {
+    grid-template-columns: 1fr;
+  }
+  .app__panel {
+    flex-direction: column;
+  }
+  .app__meta {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .app {
+    padding: 1rem;
+  }
+  .app__header h1 {
+    font-size: 1.5rem;
+  }
+  .app__temperature {
+    width: 100%;
+  }
+}
